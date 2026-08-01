@@ -13,7 +13,7 @@ import type {
   HasManyRemoveAssociationMixin,
   HasManyRemoveAssociationsMixin,
   HasManySetAssociationsMixin,
-  Model
+  Model,
 } from 'sequelize';
 
 // define helper types
