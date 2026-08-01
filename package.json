@@ -1,0 +1,49 @@
+{
+  "name": "@sarvis/nestjs-langgraph-checkpoint",
+  "version": "0.0.0-develop",
+  "depcheck": {
+    "ignoreBinPackage": false,
+    "ignores": ["typescript", "tsup"],
+    "ignorePatterns": ["dist", "coverage"]
+  },
+  "peerDependencies": {
+    "@langchain/core": "^0.3.49",
+    "@langchain/langgraph-checkpoint": "^0.0.17",
+    "@nestjs/common": "^11.1.2",
+    "@nestjs/sequelize": "^11.0.0",
+    "pg": "^8.15.6",
+    "sequelize": "^6.37.7",
+    "sequelize-typescript": "^2.1.6",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@tsconfig/node-lts": "^22.0.1",
+    "@types/pg": "^8.11.14",
+    "@typescript-eslint/eslint-plugin": "8.31.0",
+    "@eslint/compat": "1.2.8",
+    "@eslint/js": "9.25.1",
+    "@eslint/markdown": "6.4.0",
+    "eslint": "9.25.1",
+    "eslint-config-prettier": "10.1.2",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-json": "4.0.1",
+    "eslint-plugin-prettier": "5.2.6",
+    "globals": "16.0.0",
+    "prettier": "3.5.3",
+    "typescript-eslint": "8.31.0"
+  },
+  "exports": {},
+  "files": ["dist"],
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.4.1",
+  "private": true,
+  "scripts": {
+    "build": "tsc .",
+    "check:types": "tsc --noEmit",
+    "tsc": "tsc",
+    "lint": "eslint --cache --cache-location node_modules/.cache --fix .",
+    "format": "prettier --log-level error --write --ignore-unknown --cache-location node_modules/.cache ."
+  },
+  "type": "module"
+}

@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "ms-azuretools.vscode-docker",
+    "mikestead.dotenv",
+    "editorconfig.editorconfig",
+    "eamodio.gitlens",
+    "CrazyFluff.bettermaterialthemedarkerhighcontrast",
+    "mikerhyssmith.ts-barrelr",
+    "pkief.material-icon-theme",
+    "christian-kohler.path-intellisense",
+    "visualstudioexptteam.vscodeintellicode",
+    "Vercel.turbo-vsc",
+    "bradlc.vscode-tailwindcss"
+  ]
+}
