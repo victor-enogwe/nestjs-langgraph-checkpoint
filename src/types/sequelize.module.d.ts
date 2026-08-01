@@ -2,16 +2,6 @@
 import type {
   BelongsToCreateAssociationMixin,
   BelongsToGetAssociationMixin,
-  BelongsToManyAddAssociationMixin,
-  BelongsToManyAddAssociationsMixin,
-  BelongsToManyCountAssociationsMixin,
-  BelongsToManyCreateAssociationMixin,
-  BelongsToManyGetAssociationsMixin,
-  BelongsToManyHasAssociationMixin,
-  BelongsToManyHasAssociationsMixin,
-  BelongsToManyRemoveAssociationMixin,
-  BelongsToManyRemoveAssociationsMixin,
-  BelongsToManySetAssociationsMixin,
   BelongsToSetAssociationMixin,
   HasManyAddAssociationMixin,
   HasManyAddAssociationsMixin,
@@ -23,11 +13,7 @@ import type {
   HasManyRemoveAssociationMixin,
   HasManyRemoveAssociationsMixin,
   HasManySetAssociationsMixin,
-  HasOneCreateAssociationMixin,
-  HasOneGetAssociationMixin,
-  HasOneSetAssociationMixin,
-  Model,
-  SearchPathable,
+  Model
 } from 'sequelize';
 
 // define helper types
@@ -47,19 +33,6 @@ export type BelongsToMixin<
     get: BelongsToGetAssociationMixin<AssociatedModel>;
     set: BelongsToSetAssociationMixin<AssociatedModel, PrimaryKeyType>;
     create: BelongsToCreateAssociationMixin<AssociatedModel>;
-  },
-  Capitalize<Name>
->;
-
-export type HasOneMixin<
-  AssociatedModel extends Model,
-  PrimaryKeyType,
-  Name extends string,
-> = PostfixProperties<
-  {
-    get: HasOneGetAssociationMixin<AssociatedModel>;
-    set: HasOneSetAssociationMixin<AssociatedModel, PrimaryKeyType>;
-    create: HasOneCreateAssociationMixin<AssociatedModel>;
   },
   Capitalize<Name>
 >;
@@ -91,41 +64,3 @@ export type HasManyMixin<
       Capitalize<SingularName>
     >
 >;
-
-export type BelongsToManyMixin<
-  AssociatedModel extends Model,
-  PrimaryKeyType,
-  SingularName extends string,
-  PluralName extends string,
-> = Prettify<
-  PostfixProperties<
-    {
-      get: BelongsToManyGetAssociationsMixin<AssociatedModel>;
-      count: BelongsToManyCountAssociationsMixin;
-      has: BelongsToManyHasAssociationsMixin<AssociatedModel, PrimaryKeyType>;
-      set: BelongsToManySetAssociationsMixin<AssociatedModel, PrimaryKeyType>;
-      add: BelongsToManyAddAssociationsMixin<AssociatedModel, PrimaryKeyType>;
-      remove: BelongsToManyRemoveAssociationsMixin<
-        AssociatedModel,
-        PrimaryKeyType
-      >;
-    },
-    Capitalize<PluralName>
-  > &
-    PostfixProperties<
-      {
-        has: BelongsToManyHasAssociationMixin<AssociatedModel, PrimaryKeyType>;
-        add: BelongsToManyAddAssociationMixin<AssociatedModel, PrimaryKeyType>;
-        remove: BelongsToManyRemoveAssociationMixin<
-          AssociatedModel,
-          PrimaryKeyType
-        >;
-        create: BelongsToManyCreateAssociationMixin<AssociatedModel>;
-      },
-      Capitalize<SingularName>
-    >
->;
-
-export interface DbQuerySchema extends SearchPathable {
-  schema?: string;
-}
