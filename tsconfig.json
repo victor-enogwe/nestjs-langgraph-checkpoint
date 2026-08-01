@@ -38,7 +38,10 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "types": [
+      "node"
+    ]
   },
   "ts-node": {
     "swc": true,
@@ -47,8 +50,15 @@
     "transpileOnly": true,
     "experimentalResolver": true,
     "experimentalSpecifierResolution": "node",
-    "require": ["tsconfig-paths/register"]
+    "require": [
+      "tsconfig-paths/register"
+    ]
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

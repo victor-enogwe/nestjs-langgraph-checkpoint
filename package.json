@@ -3,8 +3,14 @@
   "version": "0.0.0-develop",
   "depcheck": {
     "ignoreBinPackage": false,
-    "ignores": ["typescript", "tsup"],
-    "ignorePatterns": ["dist", "coverage"]
+    "ignores": [
+      "typescript",
+      "tsup"
+    ],
+    "ignorePatterns": [
+      "dist",
+      "coverage"
+    ]
   },
   "peerDependencies": {
     "@langchain/core": "^0.3.49",
@@ -18,31 +24,114 @@
     "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "@tsconfig/node-lts": "^22.0.1",
-    "@types/pg": "^8.11.14",
-    "@typescript-eslint/eslint-plugin": "8.31.0",
     "@eslint/compat": "1.2.8",
     "@eslint/js": "9.25.1",
     "@eslint/markdown": "6.4.0",
-    "eslint": "9.25.1",
-    "eslint-config-prettier": "10.1.2",
-    "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-json": "4.0.1",
-    "eslint-plugin-prettier": "5.2.6",
-    "globals": "16.0.0",
-    "prettier": "3.5.3",
-    "typescript-eslint": "8.31.0"
+    "@swc/core": "^1.15.33",
+    "@tsconfig/node-lts": "^22.0.1",
+    "@types/node": "^22.15.2",
+    "@types/pg": "^8.11.14",
+    "@typescript-eslint/eslint-plugin": "^8.31.0",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-json": "^4.0.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "tsup": "^8.3.6",
+    "typescript-eslint": "^8.31.0"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "license": "UNLICENSED",
   "packageManager": "pnpm@10.4.1",
   "private": true,
   "scripts": {
-    "build": "tsc .",
-    "check:types": "tsc --noEmit",
+    "build": "tsup-node src",
+    "check": "tsc --noEmit",
     "tsc": "tsc",
     "lint": "eslint --cache --cache-location node_modules/.cache --fix .",
     "format": "prettier --log-level error --write --ignore-unknown --cache-location node_modules/.cache ."
   },
-  "type": "module"
+  "type": "module",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "esbuild"
+    ]
+  },
+  "exports": {
+    "./entities/checkpoint-blob": {
+      "import": {
+        "types": "./dist/entities/checkpoint-blob.d.ts",
+        "default": "./dist/entities/checkpoint-blob.mjs"
+      },
+      "require": {
+        "types": "./dist/entities/checkpoint-blob.d.cts",
+        "default": "./dist/entities/checkpoint-blob.cjs"
+      }
+    },
+    "./entities/checkpoint-write": {
+      "import": {
+        "types": "./dist/entities/checkpoint-write.d.ts",
+        "default": "./dist/entities/checkpoint-write.mjs"
+      },
+      "require": {
+        "types": "./dist/entities/checkpoint-write.d.cts",
+        "default": "./dist/entities/checkpoint-write.cjs"
+      }
+    },
+    "./entities/checkpoint": {
+      "import": {
+        "types": "./dist/entities/checkpoint.d.ts",
+        "default": "./dist/entities/checkpoint.mjs"
+      },
+      "require": {
+        "types": "./dist/entities/checkpoint.d.cts",
+        "default": "./dist/entities/checkpoint.cjs"
+      }
+    },
+    "./repositories/checkpoint-blob": {
+      "import": {
+        "types": "./dist/repositories/checkpoint-blob.d.ts",
+        "default": "./dist/repositories/checkpoint-blob.mjs"
+      },
+      "require": {
+        "types": "./dist/repositories/checkpoint-blob.d.cts",
+        "default": "./dist/repositories/checkpoint-blob.cjs"
+      }
+    },
+    "./repositories/checkpoint-write": {
+      "import": {
+        "types": "./dist/repositories/checkpoint-write.d.ts",
+        "default": "./dist/repositories/checkpoint-write.mjs"
+      },
+      "require": {
+        "types": "./dist/repositories/checkpoint-write.d.cts",
+        "default": "./dist/repositories/checkpoint-write.cjs"
+      }
+    },
+    "./repositories/checkpoint": {
+      "import": {
+        "types": "./dist/repositories/checkpoint.d.ts",
+        "default": "./dist/repositories/checkpoint.mjs"
+      },
+      "require": {
+        "types": "./dist/repositories/checkpoint.d.cts",
+        "default": "./dist/repositories/checkpoint.cjs"
+      }
+    },
+    "./services/checkpointer": {
+      "import": {
+        "types": "./dist/services/checkpointer.service.d.ts",
+        "default": "./dist/services/checkpointer.service.mjs"
+      },
+      "require": {
+        "types": "./dist/services/checkpointer.service.d.cts",
+        "default": "./dist/services/checkpointer.service.cjs"
+      }
+    }
+  }
 }
