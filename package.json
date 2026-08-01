@@ -93,6 +93,16 @@
         "default": "./dist/entities/checkpoint.cjs"
       }
     },
+    "./entities/base": {
+      "import": {
+        "types": "./dist/entities/base.d.ts",
+        "default": "./dist/entities/base.mjs"
+      },
+      "require": {
+        "types": "./dist/entities/base.d.cts",
+        "default": "./dist/entities/base.cjs"
+      }
+    },
     "./repositories/checkpoint-blob": {
       "import": {
         "types": "./dist/repositories/checkpoint-blob.d.ts",
