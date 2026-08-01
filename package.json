@@ -1,11 +1,6 @@
 {
   "name": "@sarvis/nestjs-langgraph-checkpoint",
   "version": "0.0.0-develop",
-  "depcheck": {
-    "ignoreBinPackage": false,
-    "ignores": ["typescript", "tsup"],
-    "ignorePatterns": ["dist", "coverage"]
-  },
   "peerDependencies": {
     "@langchain/core": "^0.3.49",
     "@langchain/langgraph-checkpoint": "^0.0.17",
@@ -37,9 +32,8 @@
     "typescript-eslint": "^8.31.0"
   },
   "files": ["dist"],
-  "license": "UNLICENSED",
   "packageManager": "pnpm@10.4.1",
-  "private": true,
+  "license": "MIT",
   "scripts": {
     "build": "tsup-node src",
     "check": "tsc --noEmit",
